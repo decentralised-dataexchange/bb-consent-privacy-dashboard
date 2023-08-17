@@ -1,5 +1,5 @@
 <h1 align="center">
-    GovStack Consent BB Privacy Dashboard for individuals
+    GovStack Consent BB Privacy Dashboard
 </h1>
 
 <p align="center">
