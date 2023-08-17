@@ -3,8 +3,8 @@
 </h1>
 
 <p align="center">
-    <a href="/../../commits/" title="Last Commit"><img src="https://img.shields.io/github/last-commit/decentralised-dataexchange/bb-consent-web-privacy-dashboard?style=flat"></a>
-    <a href="/../../issues" title="Open Issues"><img src="https://img.shields.io/github/issues/decentralised-dataexchange/bb-consent-web-privacy-dashboard?style=flat"></a>
+    <a href="/../../commits/" title="Last Commit"><img src="https://img.shields.io/github/last-commit/decentralised-dataexchange/bb-consent-privacy-dashboard?style=flat"></a>
+    <a href="/../../issues" title="Open Issues"><img src="https://img.shields.io/github/issues/decentralised-dataexchange/bb-consent-privacy-dashboard?style=flat"></a>
     <a href="./LICENSE" title="License"><img src="https://img.shields.io/badge/License-MIT%202.0-green.svg?style=flat"></a>
 </p>
 
