@@ -17,16 +17,11 @@
 
 ## About
 
-This repository hosts source code for the reference implementation of the GovStack Consent Building Block Privacy Dashboard towards individuals.
+This repository hosts source code for the reference implementation of the GovStack Consent Building Block Privacy Dashboard (WebClient) towards individuals.
 
 ## Release Status
 
-The key deliverables of the project are as given. The table summarises the release status of all the deliverables.
-
-| Identifier | Date          | Deliverable             |
-| :--------- | :------------ | :---------------------- |
-| D3.1.1     | November 15th | Developer documentation |
-| D3.1.2     | November 15th | Test protocol           |
+Refer to the [wiki page](https://github.com/decentralised-dataexchange/bb-consent-docs/wiki/wps-and-deliverables) for the latest status of the deliverables. 
 
 ## Other resources
 
