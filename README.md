@@ -1,5 +1,5 @@
 <h1 align="center">
-    GovStack Consent BB Privacy Dashboard
+    GovStack Consent BB Privacy Dashboard (WebClient)
 </h1>
 
 <p align="center">
