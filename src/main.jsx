@@ -1,16 +1,22 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import './index.css'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App.jsx";
+import "./index.css";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-const elementId = document
-  .getElementById("consentBbPrivacyBoard-script")
-  ?.getAttribute("data-element-id");
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+  },
+  {
+    path: "/hello",
+    element: <div>Hello world!</div>,
+  },
+]);
 
-window.ConsentBbPrivacyBoard = () => {
-  ReactDOM.createRoot(document.getElementById(elementId)).render(
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
-  );
-};
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+    <RouterProvider router={router} />
+  </React.StrictMode>
+);
