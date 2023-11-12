@@ -1,0 +1,303 @@
+.login-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  flex-direction: column;
+}
+
+.login-error {
+  color: #ff4b4b;
+  position: absolute;
+  text-align: center;
+  left: 0;
+  width: 100%;
+  font-size: 13px;
+}
+
+.login-container-main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 0px 10px;
+}
+
+.login-container-main .logo > img {
+  width: 100%;
+  border-radius: 50%;
+}
+
+.login-form {
+  max-width: 400px;
+  padding: 1rem;
+  width: 100%;
+}
+
+.login-form .label-small {
+  font-size: 10px;
+}
+
+.login-form input {
+  font-size: 15px;
+  border: none;
+  outline: 0;
+}
+
+.login-btn {
+  width: 20px;
+  cursor: pointer;
+  margin-top: 4px;
+}
+
+.right-arrow {
+  filter: opacity(0.6);
+}
+
+.right-arrow:hover {
+  filter: opacity(0.9);
+}
+
+.ant-input-affix-wrapper:hover {
+  border: none;
+  outline: none;
+}
+
+.login-form .ant-input:focus {
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+.login-form .login-form-button {
+  width: 100%;
+  height: 42px;
+  font-size: 18px;
+}
+
+.login-footer {
+  width: 100%;
+  height: 100px;
+  /* position: fixed;
+	bottom: 0; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 10px 0px 0px 0px;
+  flex-direction: column;
+}
+
+.login-footer p {
+  margin: 0;
+}
+
+.login-footer a {
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.login-footer .copyright {
+  font-size: 10px;
+  color: #595959;
+}
+
+.login-form .login-input-group {
+  box-sizing: border-box;
+  padding: 5px;
+  border: 1px solid #cecece;
+  border-radius: 7px;
+}
+
+.login-form .ant-form-item {
+  margin: 0;
+}
+
+.login-form .login-checkbox {
+  display: flex;
+  justify-content: center;
+  margin-top: 27px;
+}
+
+.login-form .login-divider {
+  width: 80%;
+  min-width: 80%;
+  margin: 0 auto;
+}
+
+.login-form .login-divider-m0 {
+  margin: 0;
+}
+
+.login-form label {
+  font-size: 17px;
+}
+
+.login-form .login-actions {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.login-form .login-actions a,
+p {
+  line-height: 30px;
+  font-size: 14px;
+}
+
+.login-title {
+  font-size: 20px;
+  /* font-weight: 500; */
+  margin: 0 0 0 0;
+  color: black;
+}
+
+.anticon-right-circle {
+  cursor: pointer;
+  color: #8e8e8e;
+  transition: color 0.3s;
+  font-size: 1.7rem;
+}
+
+.anticon-right-circle:hover {
+  color: rgb(92, 92, 92);
+}
+
+.anticon-right-circle:active {
+  color: rgb(92, 92, 92);
+}
+
+.ant-form-explain-holder {
+  display: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .login-title {
+    font-size: 20px;
+  }
+
+  .login-form input {
+    font-size: 14px;
+  }
+}
+
+@media only screen and (max-height: 500px) {
+  .login-footer-container {
+    display: none;
+  }
+}
+
+/*Register actions*/
+.register-actions {
+  text-align: center;
+}
+
+.register-actions > a {
+  margin-left: 4px;
+}
+
+.openid-page-container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.openid-loader-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.openid-loader-container p {
+  font-size: 16px;
+}
+
+.openid-loader,
+.openid-loader:before,
+.openid-loader:after {
+  border-radius: 50%;
+  width: 2.5em;
+  height: 2.5em;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation: load7 1.8s infinite ease-in-out;
+  animation: load7 1.8s infinite ease-in-out;
+}
+
+.openid-loader {
+  color: #000000;
+  font-size: 10px;
+  margin: 80px auto;
+  position: relative;
+  text-indent: -9999em;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+
+.openid-loader:before,
+.openid-loader:after {
+  content: "";
+  position: absolute;
+  top: 0;
+}
+
+.openid-loader:before {
+  left: -3.5em;
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+
+.openid-loader:after {
+  left: 3.5em;
+}
+
+@-webkit-keyframes load7 {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 2.5em 0 -1.3em;
+  }
+
+  40% {
+    box-shadow: 0 2.5em 0 0;
+  }
+}
+
+@keyframes load7 {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 2.5em 0 -1.3em;
+  }
+
+  40% {
+    box-shadow: 0 2.5em 0 0;
+  }
+}
+
+.app-watermark {
+  align-self: center;
+  bottom: 0;
+  padding: 2px;
+  box-shadow: none;
+}
+
+.app-watermark > p {
+  margin: 0;
+  color: rgba(14, 14, 14, 0.308);
+}
+
+.login-form .css-dev-only-do-not-override-2i2tap,
+.login-form .css-dev-only-do-not-override-2i2tap:focus-within {
+  border: none !important;
+  box-shadow: none !important;
+}

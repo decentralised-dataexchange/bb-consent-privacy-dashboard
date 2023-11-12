@@ -1,0 +1,90 @@
+.organization-info {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  margin-top: -120px;
+  box-sizing: border-box;
+  padding: 5px 5px 5px 40px;
+}
+.organization-info .description {
+  margin-inline-start: 5px;
+  margin-inline-end: 5px;
+}
+.organization-info .description .description-title {
+  font-size: 18px;
+  line-height: 25px;
+  font-weight: 500;
+  color: black;
+}
+.organization-info .description .description-subtitle {
+  font-size: 14px;
+  line-height: 16px;
+  color: grey;
+}
+.organization-info p {
+  margin: 0;
+  line-height: 20px;
+}
+.organization-overview {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 5px 20px 5px 40px;
+}
+.organization-overview > p {
+  font-size: 12px;
+  line-height: 17px;
+  color: grey;
+}
+
+.organization-info-avatar {
+  min-width: 128px;
+  min-height: 128px;
+  background-color: white;
+  border: solid 2px white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media only screen and (max-width: 600px) {
+  .organization-info {
+    width: 100vw;
+    margin-top: -50px;
+    /* padding: 5px 5px 5px 20px; */
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+  }
+  .organization-info .description {
+    text-align: center;
+  }
+  .organization-info-avatar {
+    min-width: 128px;
+    min-height: 128px;
+  }
+  .organization-info .description > p {
+    font-size: 14px;
+    line-height: 14px;
+  }
+  .organization-info .description .description-title {
+    font-size: 17px;
+    line-height: 25px;
+    font-weight: 500;
+  }
+  .organization-info .description .description-subtitle {
+    font-size: 12px;
+    line-height: 13px;
+  }
+  .organization-info .ant-empty-image img {
+    /* height: 82px; */
+    width: 100%;
+  }
+  .organization-overview {
+    padding: 0 10px;
+  }
+  .ant-empty-image {
+    height: unset;
+  }
+}

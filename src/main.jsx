@@ -1,17 +1,34 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App.jsx";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Login from "./pages/login/login.jsx";
+import ForgotPassword from "./pages/forgotPassword/forgotPassword";
+import { PrivateRoute } from "./components/layout/privateRoute";
+import DefaultLayout from "./components/layout/layout";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <Login />,
   },
   {
-    path: "/hello",
-    element: <div>Hello world!</div>,
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "/forgot-password",
+    element: <ForgotPassword />,
+  },
+  {
+    path: "/dashboard/*",
+    element: (
+      <PrivateRoute
+        element={<DefaultLayout />}
+        isAuthenticated={true}
+        fallbackPath={"/"}
+      />
+    ),
   },
 ]);
 
