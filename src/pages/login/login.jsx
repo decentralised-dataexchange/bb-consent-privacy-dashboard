@@ -1,18 +1,20 @@
-import { Form, Input, Checkbox, Divider } from "antd";
+import { Form, Input, Checkbox, Divider, Button } from "antd";
 import "./login.css";
 import Logo from "../../assets/GovstackLogoBlue.svg";
 import loginbutton from "../../assets/arrow.svg";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
-import { Link,useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const navigate = useNavigate();
 
-  const onSubmit = (values) => {
-    console.log('Success:', values);
+  const onFinish = (values) => {
+    console.log("Success:", values);
 
-    navigate('/dashboard')
+    navigate("/dashboard");
   };
+
+ 
 
   return (
     <div className="login-container">
@@ -21,34 +23,30 @@ const Login = () => {
           <img src={Logo} alt="logo" />
         </div>
         <p className="login-title">Log in to your Privacy Dashboard</p>
-        <Form  className="login-form">
+        <Form onFinish={onFinish} className="login-form">
           <div className="login-input-group">
-            <Form.Item className="username-input"
-            name="username"
-            rules={[{ required: true, message: 'Please input your username!' }]}>
-              {/* {getFieldDecorator("username", {
-                            rules: []//[{ required: true, message: t("messages.username") }]
-                        })( */}
+            <Form.Item
+              name="username"
+              rules={[
+                { required: true, message: "" },
+              ]}
+            >
               <Input
-                prefix={
-                  <UserOutlined
-                    style={{ color: "rgba(0,0,0,.25)" }}
-                    className="input-prefix"
-                  />
-                }
+                prefix={<UserOutlined style={{ color: "rgba(0,0,0,.25)" }} />}
                 placeholder={"User ID"}
                 size="large"
-                // onChange={this.clearError}
                 className="input"
               />
-              {/* )} */}
             </Form.Item>
-            <Divider className="login-divider-m0" />
-            <Form.Item>
-              {/* {getFieldDecorator("password", {
-                            rules: []// [{ required: true, message: t("messages.password") }]
-                        })( */}
-                        
+
+            <Divider className="login-divider-m0"   />
+
+            <Form.Item
+              name="password"
+              rules={[
+                { required: true, message: "" },
+              ]}
+            >
               <Input
                 prefix={<LockOutlined style={{ color: "rgba(0,0,0,.25)" }} />}
                 type="password"
@@ -56,31 +54,32 @@ const Login = () => {
                 size="large"
                 className="input"
                 suffix={
-                  <img
-                    src={loginbutton}
-                    alt="loginbutton"
-                    style={{ cursor: "pointer" }}
-                    type="submit"
-                    // onClick={()=>navigate('/dashboard')}
-                    onClick={onSubmit}
-                  />
+                  <Button
+                    // type="text"
+                    style={{
+                      padding: 0,
+                      backgroundColor: "transparent",
+                      border: 0,
+                    }}
+                    // onClick={onPasswordIconClick}
+                    type="primary"
+                    htmlType="submit"
+                  >
+                    <img
+                      src={loginbutton}
+                      alt="loginbutton"
+                      style={{ cursor: "pointer" }}
+                    />
+                  </Button>
                 }
-                // onChange={this.clearError}
               />
-              {/* )} */}
             </Form.Item>
           </div>
-          {/* {error && <div className='login-error'>{error}</div>} */}
           <Form.Item>
             <div className="login-checkbox">
-              {/* {getFieldDecorator("remember", {
-                            valuePropName: "checked",
-                            initialValue: true
-                        })( */}
               <Checkbox defaultChecked style={{ color: "#595959" }}>
                 Remember Me
               </Checkbox>
-              {/* )} */}
             </div>
           </Form.Item>
           <Divider className="login-divider" />
@@ -110,8 +109,6 @@ const Login = () => {
           </div>
         </div>
       </div>
-
-      {/* <OpenInApp /> */}
     </div>
   );
 };

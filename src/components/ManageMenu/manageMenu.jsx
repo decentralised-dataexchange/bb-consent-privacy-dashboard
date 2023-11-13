@@ -4,17 +4,17 @@ import MenuGrid from "./MenuGrid";
 import Tab from "../Tab/index";
 
 import { Row } from "antd";
-// import CollapseUsage from "Components/CollapseUsage";
-// import LogsTable from "Components/Table";
+import CollapseUsage from "../CollapseUsage/index";
+import LogsTable from "../Table/index";
 
 const DataAgreements = () => (
-  <Tab title={"landingPageUsagePurpose"}>{/* <CollapseUsage /> */}</Tab>
+  <Tab title={"Data Agreements"}> <CollapseUsage /> </Tab>
 );
 
 const Logs = () => (
-  <Tab title={"logs"}>
+  <Tab title={"Logs"}>
     <div>
-      <Row>{/* <LogsTable /> */}</Row>
+      <Row><LogsTable /> </Row>
     </div>
   </Tab>
 );

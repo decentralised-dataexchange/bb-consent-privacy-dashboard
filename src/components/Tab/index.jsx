@@ -1,5 +1,5 @@
 import './tab.css';
-// import BackButton from 'Components/BackButton';
+import BackButton from '../BackButton/index';
 
 
 const Tab = (props) => {
@@ -7,9 +7,9 @@ const Tab = (props) => {
         const {title} = props;
         return (
             <div className='menu-tab'>
-            {/* <BackButton /> */}
+            <BackButton />
             <div className='menu-tab-header'><p>{title}</p></div>
-                {/* {props.children} */}
+                {props.children}
             </div>
         );
     }

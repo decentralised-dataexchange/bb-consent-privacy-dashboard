@@ -13,7 +13,7 @@ const overview = {
 const MenuGrid = () => {
   const navigate = useNavigate();
   const changeRoute = (path) => {
-    // navigate(`/dashboard/${path}`);
+    navigate(`/dashboard/${path}`);
   };
 
   return (
@@ -47,7 +47,7 @@ const MenuGrid = () => {
         >
           <div
             className="menu-grid-icon"
-            onClick={() => changeRoute("dataagreements")}
+            onClick={() => changeRoute("logs")}
           >
             <img style={{ width: "100%" }} src={usagePurposeIcon} />
           </div>

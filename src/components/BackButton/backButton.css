@@ -1,0 +1,9 @@
+.menu-back-button {
+  color: grey;
+}
+
+@media only screen and (max-width: 600px) {
+  .menu-back-button {
+    padding-left: 10px;
+  }
+}
