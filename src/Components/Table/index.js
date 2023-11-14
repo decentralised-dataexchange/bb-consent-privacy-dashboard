@@ -59,6 +59,7 @@ class Table extends Component {
     });
 
   componentDidMount() {
+    store.historyLogs.isFetching = true;
     store.fetchLogs();
   }
 
