@@ -34,6 +34,7 @@ class CollapseUsage extends Component {
     }
 
     componentDidMount() {
+        store.dataAgreements.isFetching = true;
         store.fetchPurposes();
     }
 
