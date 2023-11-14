@@ -22,8 +22,8 @@ const Config = (BASE_URL, ORGANIZATION_ID, LOGO_URL, IAM_URL, IAM_REALM, SUBSCRI
                 details: `${BASE_URL}/v1/user`
             },
             exchangeAuthorizationCodeWeb: `${BASE_URL}/v1/organizations/${ORGANIZATION_ID}/idp/open-id/exchange`,
-            dataAgreements: `${BASE_URL}/service/data-agreements`,
-            consentRecords: `${BASE_URL}/service/individual/record/consent-record`,
+            dataAgreements: `${BASE_URL}/service/data-agreements?limit=100000000000`,
+            consentRecords: `${BASE_URL}/service/individual/record/consent-record?limit=100000000000`,
             createConsentRecord: (dataAgreementId) => { return `${BASE_URL}/service/individual/record/data-agreement/${dataAgreementId}` },
             updateConsentRecord: (consentRecordId, dataAgreementId, individualId) => { return `${BASE_URL}/service/individual/record/consent-record/${consentRecordId}?individualId=${individualId}&dataAgreementId=${dataAgreementId}` },
             organization: {

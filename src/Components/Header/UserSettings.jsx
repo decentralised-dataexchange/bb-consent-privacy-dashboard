@@ -40,11 +40,17 @@ const UserDetailsWithNamespace = withNamespaces()(UserDetails);
 const MenuList = ({ t, hide, logout, changeRoute }) => (
   <div style={{ minWidth: "150px" }}>
     <UserDetailsWithNamespace />
-    <Menu>
-      <Menu.SubMenu title={t("language")}>{items}</Menu.SubMenu>
-      <Menu.Item>
-        <a onClick={logout}>{t("dashboard.logout")}</a>
+    <Menu selectable={false}>
+      <Menu.Item
+        onClick={() => {
+          history.push("/dashboard/logs");
+          hide();
+        }}
+      >
+        {t("viewlogs.title")}
       </Menu.Item>
+      <Menu.SubMenu title={t("language")}>{items}</Menu.SubMenu>
+      <Menu.Item onClick={logout}>{t("dashboard.logout")}</Menu.Item>
     </Menu>
   </div>
 );

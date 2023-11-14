@@ -5,7 +5,7 @@ import { history } from "../../history";
 
 const goToHome = () => {
   // console.log('goto home');
-  history.push("/dashboard/menu");
+  history.push("/dashboard/dataagreements");
 };
 
 const HomeButton = () => (

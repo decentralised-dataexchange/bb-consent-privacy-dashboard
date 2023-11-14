@@ -9,7 +9,7 @@ class Tab extends Component {
         const {title} = this.props;
         return (
             <div className='menu-tab'>
-            <BackButton />
+            {/* <BackButton /> */}
             <div className='menu-tab-header'><p>{title}</p></div>
                 {this.props.children}
             </div>

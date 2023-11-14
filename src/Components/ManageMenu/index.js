@@ -34,10 +34,10 @@ class index extends Component {
     return (
       <div className="router-container">
         <Switch>
-          <Route path="/dashboard/menu" component={MenuGrid} />
+          {/* <Route path="/dashboard/menu" component={MenuGrid} /> */}
           <Route path="/dashboard/dataagreements" component={DataAgreements} />
           <Route path="/dashboard/logs" component={Logs} />
-          <Redirect exact from="/dashboard" to="/dashboard/menu" />
+          <Redirect exact from="/dashboard" to="/dashboard/dataagreements" />
         </Switch>
       </div>
     );
