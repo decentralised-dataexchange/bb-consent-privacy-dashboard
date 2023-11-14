@@ -47,20 +47,6 @@ class Store {
         isFetching: true
     };
 
-    @action readIdp = () => {
-        // Read IDP
-        services.readIdp().then((readIdpRes) => {
-            if (readIdpRes.status === 200) {
-                console.log("Read IDP: ", readIdpRes.data);
-            }
-
-        }).catch(error => {
-            console.error("Error occured while reading IDP: ", error);
-        });;
-
-
-    };
-
     @action fetchLogs = () => {
         // Fetch logs
         const request = services.fetchLogs();
@@ -156,11 +142,14 @@ class Store {
                     .then(fetchConsentRecordsRes => {
                         if (fetchConsentRecordsRes.status === 200) {
 
-                            const processed = this.processConsentRecordsAndDataAgreement(fetchDataAgreementsRes.data.dataAgreements, fetchConsentRecordsRes.data.consentRecords)
-                            console.log("Consent records and data agreements after processing: ", processed)
-                            this.dataAgreements.data = processed.processedDataAgreements;
-                            this.dataAgreements.isFetching = false;
-                            this.dataAgreements.loadingUiStore = processed.loadingUiStore;
+                            this.processConsentRecordsAndDataAgreement(fetchDataAgreementsRes.data.dataAgreements, fetchConsentRecordsRes.data.consentRecords).then((processConsentRecordsAndDataAgreementRes) => {
+                                console.log("Consent records and data agreements after processing: ", processConsentRecordsAndDataAgreementRes)
+                                this.dataAgreements.data = processConsentRecordsAndDataAgreementRes.processedDataAgreements;
+                                this.dataAgreements.isFetching = false;
+                                this.dataAgreements.loadingUiStore = processConsentRecordsAndDataAgreementRes.loadingUiStore;
+                            })
+
+
                         }
                     }).catch(error => console.error(error));
             }
@@ -175,8 +164,12 @@ class Store {
 
                 this.dataAgreements.data = this.dataAgreements.data.map((dataAgreement) => {
                     if (dataAgreement.id === dataAgreementId) {
+                        const isNotConsentOrLegitimateInterest = !(dataAgreement.lawfulBasis === "consent" || dataAgreement.lawfulBasis === "legitimate_interest");
+
                         // Update consent record
                         dataAgreement.consentRecords = createConsentRecordRes.data.consentRecord;
+                        dataAgreement.isUpdate = true;
+                        dataAgreement.isDisabled = isNotConsentOrLegitimateInterest;
                     }
                     return dataAgreement;
                 })
@@ -258,7 +251,6 @@ class Store {
         let filtered = this.purposesAndConsents.data.filter(
             x => x["Purpose"]["ID"] != purposeId
         );
-        console.log("filterred", filtered);
         this.purposesAndConsents.data = filtered;
     };
 
@@ -391,13 +383,12 @@ class Store {
         }
     };
 
-    processConsentRecordsAndDataAgreement = (dataAgreements, consentRecords) => {
-
+    processConsentRecordsAndDataAgreement = async (dataAgreements, consentRecords) => {
         const loadingUiStore = {};
-        const processedDataAgreements = dataAgreements.map((dataAgreement) => {
 
-            const associatedConsentRecords = consentRecords.filter(consentRecord =>
-                consentRecord.dataAgreementId === dataAgreement.id
+        const processedDataAgreements = await Promise.all(dataAgreements.map(async (dataAgreement) => {
+            const associatedConsentRecords = consentRecords.filter(
+                (consentRecord) => consentRecord.dataAgreementId === dataAgreement.id
             );
 
             const isNotConsentOrLegitimateInterest = !(dataAgreement.lawfulBasis === "consent" || dataAgreement.lawfulBasis === "legitimate_interest");
@@ -405,12 +396,15 @@ class Store {
             // If lawful basis is not consent or legitimate interest
             // And if consent record is empty then, create a consent record
             if (isNotConsentOrLegitimateInterest && associatedConsentRecords.length === 0) {
-                services.createConsentRecord(dataAgreement.id).then((createConsentRecordRes) => {
+                try {
+                    const createConsentRecordRes = await services.createConsentRecord(dataAgreement.id);
                     if (createConsentRecordRes.status === 200) {
                         console.log("Consent record created for data agreement: ", dataAgreement.id);
-                        associatedConsentRecords.push(createConsentRecordRes.data.consentRecord)
+                        associatedConsentRecords.push(createConsentRecordRes.data.consentRecord);
                     }
-                }).catch(error => console.error(error));
+                } catch (error) {
+                    console.error(error);
+                }
             }
 
             // Set ui loader state for each data agreement
@@ -426,15 +420,16 @@ class Store {
                 version: dataAgreement.version,
                 consentRecords: associatedConsentRecords.length === 0 ? null : associatedConsentRecords[0],
                 isDisabled: isNotConsentOrLegitimateInterest,
-                isUpdate: associatedConsentRecords.length !== 0
-            }
-        })
+                isUpdate: associatedConsentRecords.length !== 0,
+            };
+        }));
 
         return {
-            processedDataAgreements: processedDataAgreements,
-            loadingUiStore: loadingUiStore
+            processedDataAgreements,
+            loadingUiStore,
         };
-    }
+    };
+
 
     mapToLoadingUiStore = consentsAndPurpose => {
         const loader = consentsAndPurpose.reduce((acc, cur) => {

@@ -42,7 +42,6 @@ class CollapseUsage extends Component {
 
     handleSwitch = (dataAgreement, value, e) => {
         e.stopPropagation();
-        console.log(value);
         if (dataAgreement["isUpdate"]) {
             store.updateConsentRecord(dataAgreement["consentRecords"]["id"], dataAgreement["id"], dataAgreement["consentRecords"]["individualId"], value);
         } else {

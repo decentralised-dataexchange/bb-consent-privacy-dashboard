@@ -157,7 +157,7 @@ export default class HttpClient {
             console.log('Error: Access token is not provided!');
         }
     };
-    createConsentRecord = (dataAgreementId) => {
+    createConsentRecord =  (dataAgreementId) => {
         const endpoint = this.store.config.apiEndpoints.createConsentRecord(dataAgreementId);
         const token = this.auth.token;
         if (token) {

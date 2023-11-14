@@ -14,7 +14,6 @@ export const Init = (config = {}) => {
     const completeConfig = toConfigModal(config);
     if (completeConfig) {
         store.config = completeConfig;
-        console.log(store.config)
         ReactDOM.render(
             <App />,
             document.getElementById("root")
