@@ -74,7 +74,7 @@ class Auth {
                     } else {
                         let body = {
                             refreshtoken: this.refreshToken,
-                            clientId: "igrant-ios-app"
+                            clientId: this.store.config.consentBbClientId
                         }
 
                         axios.post(`${this.store.config.apiEndpoints.refreshToken}`, body, {

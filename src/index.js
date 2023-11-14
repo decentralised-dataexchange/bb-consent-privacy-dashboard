@@ -31,10 +31,12 @@ export const Init = (config = {}) => {
 const toConfigModal = (config) => {
     let baseUrl = config.baseUrl;
     let redirectUrl = config.redirectUrl;
+    let consentBbClientId = config.consentBbClientId;
     if (baseUrl &&
         typeof (baseUrl) === 'string' &&
-        typeof (redirectUrl) === 'string') {
-        const configModal = Config(baseUrl, redirectUrl);
+        typeof (redirectUrl) === 'string' &&
+        typeof (consentBbClientId) === 'string') {
+        const configModal = Config(baseUrl, redirectUrl, consentBbClientId);
         return configModal;
     } else {
         console.error('Config format is incorrect');
