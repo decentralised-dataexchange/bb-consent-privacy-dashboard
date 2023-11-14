@@ -1,3 +1,4 @@
 {
-  "baseUrl": "https://staging-consent-bb-api.igrant.io/v2"
+  "baseUrl": "https://staging-consent-bb-api.igrant.io/v2",
+  "redirectUrl": "http://localhost:3000/login"
 }

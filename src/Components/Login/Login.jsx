@@ -21,12 +21,7 @@ class Login extends Component {
     super(props);
 
     // Don't show login for OpenID connect subscription method
-    let showLogin = true;
-    if (store.config.subscriptionMethodId === 2) {
-      showLogin = false;
-    }
-
-    this.state = { showLogin: showLogin, openIdLoaderText: "" };
+    this.state = { showLogin: false, openIdLoaderText: "" };
   }
 
   componentWillMount() {
@@ -41,60 +36,82 @@ class Login extends Component {
       // This is for handling QR code redirection if already authenticated.
       history.push("/dashboard");
     } else {
-      // Handling OpenID connect subscription method
-      if (store.config.subscriptionMethodId === 2) {
-        const sessionState = qs.parse(this.props.location.hash, {
-          ignoreQueryPrefix: true,
-        }).session_state;
-        const authorizationCode = qs.parse(this.props.location.hash, {
-          ignoreQueryPrefix: true,
-        }).code;
+      // Read IDP configuration
+      services
+        .readIdp()
+        .then((readIdpRes) => {
+          if (readIdpRes.status === 200) {
+            if (readIdpRes.data.idp !== null) {
+              // Save IDP config to store
+              store.idpConfig = readIdpRes.data.idp;
 
-        if (sessionState) {
-          // Updating the loader text to be shown while waiting for the redirection towards org login page.
-          this.setState({
-            openIdLoaderText:
-              "Successfully logged in, setting up your account...",
-          });
+              // Handling OpenID connect subscription method
+              const authorizationCode = qs.parse(this.props.location.search, {
+                ignoreQueryPrefix: true,
+              }).code;
 
-          // Exchanging authorization code to fetch the access token and user details.
+              if (authorizationCode) {
+                // Updating the loader text to be shown while waiting for the redirection towards org login page.
+                this.setState({
+                  openIdLoaderText:
+                    "Successfully logged in, setting up your account...",
+                });
 
-          const request = services.exchangeAuthorizationCodeWeb(
-            encodeURIComponent(store.config.redirectUri),
-            authorizationCode
-          );
-          if (request) {
-            request
-              .then((res) => {
-                if (res.status === 200) {
-                  // Updating the loader text to be shown while waiting for the redirection towards org login page.
-                  this.setState({
-                    openIdLoaderText:
-                      "Successfully logged in, setting up your account...",
-                  });
+                // Exchanging authorization code to fetch the access token and user details.
+                const redirectUri = store.config.redirectUrl;
+                const request = services.exchangeAuthorizationCodeWeb(
+                  redirectUri,
+                  authorizationCode
+                );
+                if (request) {
+                  request
+                    .then((res) => {
+                      if (res.status === 200) {
+                        // Updating the loader text to be shown while waiting for the redirection towards org login page.
+                        this.setState({
+                          openIdLoaderText:
+                            "Successfully logged in, setting up your account...",
+                        });
 
-                  store.authStore.isLoading = true;
-                  auth.parseAuthenticationResponse(res);
+                        store.authStore.isLoading = true;
+                        auth.parseOIDCAuthenticationResponse(res);
 
-                  // TODO: Check if profile information is complete
-                  // TODO: If not complete then redirect to complete profile information
+                        // TODO: Check if profile information is complete
+                        // TODO: If not complete then redirect to complete profile information
+                      }
+                    })
+                    .catch((error) => {
+                      console.log(error);
+                    });
                 }
-              })
-              .catch((error) => {
-                console.log(error);
+              } else {
+                const authUrl = readIdpRes.data.idp.authorisationUrl;
+                const clientId = readIdpRes.data.idp.clientId;
+                const redirectUri = store.config.redirectUrl;
+
+                // Updating the loader text to be shown while waiting for the redirection towards org login page.
+                this.setState({
+                  openIdLoaderText: "Redirecting to organization login page...",
+                });
+
+                // Redirecting user to configured external identity provider login
+                window.location.href = `${authUrl}?client_id=${clientId}&response_type=code&redirect_uri=${redirectUri}`;
+              }
+            } else {
+              // Show login screen
+              this.setState({
+                showLogin: true,
               });
+            }
           }
-        } else {
-          // Updating the loader text to be shown while waiting for the redirection towards org login page.
+        })
+        .catch((error) => {
+          console.error("Error occured while reading IDP: ", error);
+          // Show login screen
           this.setState({
-            openIdLoaderText: "Redirecting to organization login page...",
+            showLogin: true,
           });
-
-          // Redirecting user to configured external identity provider login
-
-          // window.href.location = ""
-        }
-      }
+        });
     }
   }
 

@@ -10,6 +10,7 @@ class Store {
         email: ""
     };
     @observable config = {};
+    @observable idpConfig = undefined;
 
     @observable authStore = {
         isLoading: false,
@@ -44,6 +45,20 @@ class Store {
     @observable historyLogs = {
         logs: [],
         isFetching: true
+    };
+
+    @action readIdp = () => {
+        // Read IDP
+        services.readIdp().then((readIdpRes) => {
+            if (readIdpRes.status === 200) {
+                console.log("Read IDP: ", readIdpRes.data);
+            }
+
+        }).catch(error => {
+            console.error("Error occured while reading IDP: ", error);
+        });;
+
+
     };
 
     @action fetchLogs = () => {

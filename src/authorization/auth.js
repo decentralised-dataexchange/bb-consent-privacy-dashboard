@@ -64,38 +64,47 @@ class Auth {
                 this.logout();
             } else {
                 // Check if access token is expired
-                if (accessTokenExpiresIn - currentDateInUTC < 60) {
+                if (accessTokenExpiresIn - currentDateInUTC < 10) {
+
+                    if (this.store.idpConfig !== undefined || this.store.idpConfig !== null) {
+                        // Perform local logout by clearing local storage
+                        this.clearSession();
+                        this.isAuthenticated = false;
+                        history.replace("/dashboard");
+                    } else {
+                        let body = {
+                            refreshtoken: this.refreshToken,
+                            clientId: "igrant-ios-app"
+                        }
+
+                        axios.post(`${this.store.config.apiEndpoints.refreshToken}`, body, {
+                            headers: { "Content-Type": "application/json" }
+                        }).then(response => {
+
+                            let expireAt = JSON.stringify(
+                                response.data.expiresIn * 1000 + new Date().getTime()
+                            );
+
+                            this.refreshToken = response.data.refreshToken;
+                            this.accessToken = response.data.accessToken;
+
+                            // Set new access token
+                            localStorage.setItem("accessToken", response.data.accessToken);
+
+                            // Set new refresh token
+                            localStorage.setItem("refreshToken", response.data.refreshToken);
+
+                            // Set new expire at
+                            localStorage.setItem("expiresIn", expireAt);
 
 
-                    let body = {
-                        refreshtoken: this.refreshToken,
-                        clientId: "igrant-ios-app"
+                        }).catch(error => {
+
+                        });
                     }
 
-                    axios.post(`${this.store.config.apiEndpoints.refreshToken}`, body, {
-                        headers: { "Content-Type": "application/json" }
-                    }).then(response => {
-
-                        let expireAt = JSON.stringify(
-                            response.data.expiresIn * 1000 + new Date().getTime()
-                        );
-
-                        this.refreshToken = response.data.refreshToken;
-                        this.accessToken = response.data.accessToken;
-
-                        // Set new access token
-                        localStorage.setItem("accessToken", response.data.accessToken);
-
-                        // Set new refresh token
-                        localStorage.setItem("refreshToken", response.data.refreshToken);
-
-                        // Set new expire at
-                        localStorage.setItem("expiresIn", expireAt);
 
 
-                    }).catch(error => {
-
-                    });
                 }
             }
 
@@ -159,10 +168,80 @@ class Auth {
     };
 
     logout = () => {
-        // Perform local logout by clearing local storage
-        this.clearSession();
-        this.isAuthenticated = false;
-        history.replace("/dashboard");
+        try {
+            // Perform online logout for IDP if available
+            if (this.store.idpConfig !== undefined || this.store.idpConfig !== null) {
+                const data = {
+                    client_id: this.store.idpConfig.clientId,
+                    refresh_token: this.refreshToken
+                }
+                axios.post(this.store.idpConfig.logoutUrl, data, {
+                    headers: {
+                        'Authorization': `Bearer ${this.accessToken}`,
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    }
+                }).then((res) => { }).catch((error) => {
+                    // Perform local logout by clearing local storage
+                    this.clearSession();
+                    this.isAuthenticated = false;
+                    history.replace("/dashboard");
+                })
+            }
+        } finally {
+            // Perform local logout by clearing local storage
+            this.clearSession();
+            this.isAuthenticated = false;
+            history.replace("/dashboard");
+        }
+
+
+    };
+
+    parseOIDCAuthenticationResponse = res => {
+        // Parse authentication response
+
+        // Hide loader
+        this.store.authStore.isLoading = false;
+
+        // Check response status code is 200
+        if (res.status === 200) {
+            const loginRes = res.data;
+            this.error = null;
+            if (loginRes.token) {
+                if (this.store.authStore.isRemember) {
+                    // Remember me - store credentials in session
+                    setSession({
+                        ...loginRes.token,
+                        userId: loginRes.userInfo.subject,
+                        username: loginRes.userInfo.email,
+                        email: loginRes.userInfo.email
+                    });
+                }
+                // Access token
+                this.accessToken = loginRes.token.accessToken;
+                // Refresh token
+                this.refreshToken = loginRes.token.refreshToken;
+                // Access token expires in
+                this.accessTokenExpiresIn = loginRes.token.expiresIn;
+                // Individual id
+                this.userId = loginRes.userInfo.subject;
+                // Is authenticated or not
+                this.isAuthenticated = true;
+
+            } else {
+                console.error("Error: Access token is not present in login response");
+            }
+            if (loginRes.userInfo) {
+                // Update individual store
+                this.store.user.name = loginRes.userInfo.profile;
+                this.store.user.email = loginRes.userInfo.email;
+            }
+        }
+
+        // Navigate to dashboard
+        // Since login is successful
+        history.push("/dashboard");
+
     };
 
     parseAuthenticationResponse = res => {

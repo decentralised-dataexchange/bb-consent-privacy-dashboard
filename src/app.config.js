@@ -1,6 +1,7 @@
-const Config = (BASE_URL) => {
+const Config = (BASE_URL, REDIRECT_URI) => {
     return {
         baseUrl: BASE_URL,
+        redirectUrl: REDIRECT_URI,
         firebase: {
             deeplink: "https://igrant.page.link/openApp"
         },
@@ -17,6 +18,7 @@ const Config = (BASE_URL) => {
             consentRecords: `${BASE_URL}/service/individual/record/consent-record?limit=100000000000`,
             createConsentRecord: (dataAgreementId) => { return `${BASE_URL}/service/individual/record/data-agreement/${dataAgreementId}` },
             updateConsentRecord: (consentRecordId, dataAgreementId, individualId) => { return `${BASE_URL}/service/individual/record/consent-record/${consentRecordId}?individualId=${individualId}&dataAgreementId=${dataAgreementId}` },
+            readIdp: `${BASE_URL}/service/idp/open-id`,
             organization: {
                 common: `${BASE_URL}/service/organisation`,
                 coverImage: `${BASE_URL}/service/organisation/coverimage`,

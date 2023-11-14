@@ -14,6 +14,7 @@ export const Init = (config = {}) => {
     const completeConfig = toConfigModal(config);
     if (completeConfig) {
         store.config = completeConfig;
+        console.log(store.config)
         ReactDOM.render(
             <App />,
             document.getElementById("root")
@@ -29,9 +30,11 @@ export const Init = (config = {}) => {
 
 const toConfigModal = (config) => {
     let baseUrl = config.baseUrl;
+    let redirectUrl = config.redirectUrl;
     if (baseUrl &&
-        typeof (baseUrl) === 'string') {
-        const configModal = Config(baseUrl);
+        typeof (baseUrl) === 'string' &&
+        typeof (redirectUrl) === 'string') {
+        const configModal = Config(baseUrl, redirectUrl);
         return configModal;
     } else {
         console.error('Config format is incorrect');

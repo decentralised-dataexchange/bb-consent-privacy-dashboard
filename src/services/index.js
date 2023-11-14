@@ -17,6 +17,17 @@ export default class HttpClient {
         }
     };
 
+    readIdp = () => {
+        // Read IDP
+        const endpoint = this.store.config.apiEndpoints.readIdp;
+
+        try {
+            return axios.get(endpoint, {})
+        } catch (error) {
+            console.error('Error occured while making API call: ', error);
+        }
+    };
+
     // retrieving the subscribing methods enabled
     fetchSubscribeMethods = () => {
         const endpoint = this.store.config.apiEndpoints.organization.subscribeMethods;
@@ -194,7 +205,8 @@ export default class HttpClient {
     exchangeAuthorizationCodeWeb = (redirectUri, authorizationCode) => {
         const endpoint = this.store.config.apiEndpoints.exchangeAuthorizationCodeWeb;
         try {
-            return axios.post(`${endpoint}?redirect_uri=${redirectUri}&code=${authorizationCode}`)
+            const data = { redirectUri: redirectUri }
+            return axios.post(`${endpoint}?authorisationCode=${authorizationCode}`, data)
         } catch (error) {
             console.error('Error occured while making API call: ', error);
         }
