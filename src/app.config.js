@@ -14,7 +14,7 @@ const Config = (BASE_URL, ORGANIZATION_ID, LOGO_URL, IAM_URL, IAM_REALM, SUBSCRI
         },
         apiEndpoints: {
             login: `${BASE_URL}/onboard/individual/login`,
-            refreshToken: `${BASE_URL}/v1/users/token`,
+            refreshToken: `${BASE_URL}/onboard/token/refresh`,
             logout: `${BASE_URL}/v1/user/logout`,
             logoutForOpenIDSubscriptionMethod: `${BASE_URL}/v1/organizations/${ORGANIZATION_ID}/idp/open-id/logout`,
             forgotPassword: `${BASE_URL}/onboard/password/forgot`,
