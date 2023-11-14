@@ -69,7 +69,7 @@
     "description": "Você pode solicitar o download de seus dados pessoais ou visualizar o status da sua solicitação"
   },
   "dashboard": {
-    "name": "Painel de Dados e Privacidade",
+    "name": "Consent Building Block - Painel de Dados e Privacidade",
     "logout": "Sair",
     "logs": "História",
     "userRequest": "solicitações de usuário"

@@ -79,7 +79,7 @@
     "progress": "Hämtar loggar..."
   },
   "dashboard": {
-    "name": "Din Integritetspanel",
+    "name": "Consent Building Block - Din Integritetspanel",
     "logout": "Logga ut",
     "logs": "Historik",
     "userRequest": "Användarförfrågningar"

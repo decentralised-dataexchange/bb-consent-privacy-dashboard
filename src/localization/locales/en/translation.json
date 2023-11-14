@@ -79,7 +79,7 @@
     "log": "Log"
   },
   "dashboard": {
-    "name": "Privacy Dashboard",
+    "name": "Consent Building Block - Privacy Dashboard",
     "logout": "Logout",
     "logs": "History",
     "userRequest": "User requests"

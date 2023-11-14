@@ -28,22 +28,10 @@ export const Init = (config = {}) => {
 //serviceWorker.unregister();
 
 const toConfigModal = (config) => {
-    let organizationId = config.organizationId;
     let baseUrl = config.baseUrl;
-    let logoUrl = config.logoUrl;
-    let iamUrl = config.iamUrl;
-    let iamRealm = config.iamRealm;
-    let subscriptionMethodId = config.subscriptionMethodId;
-    let redirectUri = config.redirectUri;
-    if (organizationId &&
-        baseUrl &&
-        typeof (organizationId) === 'string' &&
-        typeof (baseUrl) === 'string' &&
-        typeof (iamUrl) === 'string' &&
-        typeof (iamRealm) === 'string' &&
-        typeof (subscriptionMethodId) === 'number' &&
-        typeof (redirectUri) === 'string') {
-        const configModal = Config(baseUrl, organizationId, logoUrl, iamUrl, iamRealm, subscriptionMethodId, redirectUri);
+    if (baseUrl &&
+        typeof (baseUrl) === 'string') {
+        const configModal = Config(baseUrl);
         return configModal;
     } else {
         console.error('Config format is incorrect');
