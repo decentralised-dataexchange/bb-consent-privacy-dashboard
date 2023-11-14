@@ -6,7 +6,7 @@ import { store } from "Provider/store";
 export const OrganizationOverview = observer(
   withNamespaces()(({ t }) => (
     <div className="organization-overview">
-      <h4>{t("landingPage.overview")}</h4>
+      <h4 style={{ fontSize: "16px" }}>{t("landingPage.overview")}</h4>
       <p>{store.organizationStore.data["description"]}</p>
     </div>
   ))

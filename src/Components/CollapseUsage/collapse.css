@@ -1,199 +1,196 @@
 .collapse-usage {
-    display: flex;
-    align-items: flex-start;
-    flex-wrap: wrap;
-
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
 }
 
 .bg-transparent {
-    background: transparent;
+  background: transparent;
 }
 
 .label-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
-    padding: 0px 25px;
-    width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 0px 25px;
+  width: 100%;
 }
 
 .sub-collapse-panel {
-    flex-basis: 100%;
-    font-weight: 300;
+  flex-basis: 100%;
+  font-weight: 300;
 }
 
 .sub-collapse-panel .group {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .label-wrapper .value {
-    padding: 0px 15px;
-    font-weight: 500;
-    font-size: 12px;
+  padding: 0px 15px;
+  font-weight: 500;
+  font-size: 12px;
 }
 
 .label-wrapper > label {
-    font-size: 11px;
+  font-size: 11px;
 }
 
 .sub-collapse-panel .ant-slider {
-    flex-grow: 1;
-    margin: 14px 10px;
+  flex-grow: 1;
+  margin: 14px 10px;
 }
 
-
 .panel-usage {
-    background: #f7f7f7;
-    border-radius: 4px;
-    border: none;
-    flex-basis: 45%;
-    margin: 10px;
-    transition: background-color 2s linear;
-
+  background: #f7f7f7;
+  border-radius: 4px;
+  border: none;
+  flex-basis: 45%;
+  margin: 10px;
+  transition: background-color 2s linear;
 }
 
 .panel-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .panel-header .title {
-    margin: 0;
-    line-height: 15px;
+  margin: 0;
+  line-height: 22px;
+  font-size: "14px";
 }
 
 .panel-header-count {
-    font-size: 12px;
-    margin: 0;
-    padding: 0;
-    color: gray;
+  font-size: 12px;
+  margin: 0;
+  padding: 0;
+  color: gray;
 }
 
 .panel-header > button {
-    margin-right: 20px;
+  margin-right: 20px;
 }
 
 .panel-header > p {
-    margin: 0;
+  margin: 0;
 }
 
 .panel-radio-group {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-top: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 5px;
 }
 
 .panel-radio-group > label {
-    margin-inline-end: 5px;
-    margin-inline-start: 5px;
+  margin-inline-end: 5px;
+  margin-inline-start: 5px;
 }
 
 .radio-group-small > label {
-    font-size: 12px;
+  font-size: 12px;
 }
 
 .ant-collapse > .ant-collapse-item {
-    border: none;
+  border: none;
 }
 
 .ant-collapse-borderless > .ant-collapse-item {
-    border: none;
+  border: none;
 }
 
 @media only screen and (max-width: 600px) {
-    .panel-usage {
-        background: #f7f7f7;
-        border: none;
-        flex-basis: 100%;
-        margin: 5px;
-    }
+  .panel-usage {
+    background: #f7f7f7;
+    border: none;
+    flex-basis: 100%;
+    margin: 5px;
+  }
 
-    .panel-header > p {
-        margin: 0;
-        font-size: 13px;
-    }
+  .panel-header > p {
+    margin: 0;
+    font-size: 13px;
+  }
 
-    .panel-radio-group {
-        font-size: 12px;
-        padding-top: 5px;
-    }
+  .panel-radio-group {
+    font-size: 12px;
+    padding-top: 5px;
+  }
 
-    .radio-group-small > label {
-        font-size: 11px;
-    }
+  .radio-group-small > label {
+    font-size: 11px;
+  }
 }
 
 /* Extending panel header */
 .panel-header-title {
-    display: flex;
-    margin-bottom: 9px;
-    align-items: center;
-    cursor: auto;
+  display: flex;
+  margin-bottom: 9px;
+  align-items: center;
+  cursor: auto;
 }
 
 .panel-header-title-name span {
-    text-transform: uppercase;
-    font-size: 13px;
+  text-transform: uppercase;
+  font-size: 13px;
 }
 
 .panel-header-title .panel-header-title-name {
-    flex: 1 1;
+  flex: 1 1;
 }
 
 .panel-header-title .panel-header-title-url {
-    flex: 1 1;
-    display: flex;
-    flex-direction: row-reverse;
+  flex: 1 1;
+  display: flex;
+  flex-direction: row-reverse;
 }
 
 .panel-header-title-url a {
-    border: 1px solid #bbb;
-    color: #6d6d6d;
-    border-radius: 4px;
-    text-align: center;
-    margin-right: 5px;
-    font-size: 12px;
-    padding: 4px;
+  border: 1px solid #bbb;
+  color: #6d6d6d;
+  border-radius: 4px;
+  text-align: center;
+  margin-right: 5px;
+  font-size: 12px;
+  padding: 4px;
 }
 
 .panel-header-title-url a:visited {
-    color: #6d6d6d;
+  color: #6d6d6d;
 }
 
 .panel-header-title-url a:hover {
-    color: #000000;
+  color: #000000;
 }
 
 .panel-divider {
-    height: 1px;
-    width: 88%;
-    background-color: #ececec;
-    margin-bottom: 10px;
+  height: 1px;
+  width: 88%;
+  background-color: #ececec;
+  margin-bottom: 10px;
 }
 
 .ant-popover-inner {
-    border-radius: 4px;
-    border: 1px solid #000000;
-    max-width: 250px;
+  border-radius: 4px;
+  border: 1px solid #000000;
+  max-width: 250px;
 }
 
 .ant-popover-arrow {
-    display: none;
+  display: none;
 }
 
 .ant-popover-title {
-    border-bottom: 1px solid #d4d4d4;
+  border-bottom: 1px solid #d4d4d4;
 }
 
 .ant-popover-inner-content {
-    padding: 5px 5px;
+  padding: 5px 5px;
 }
-
 
 /*.ant-collapse > .panel-usage > .ant-collapse-header .ant-collapse-arrow {*/
 /*    margin-top: 22px;*/

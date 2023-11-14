@@ -7,7 +7,7 @@ import Home from './HomeButton';
 class Header extends Component {
     render() {
         return (
-            <div className='header'>
+            <div className='header' style={{ backgroundColor: "#0a065e" }}>
                 <Title />
                 <div><Home /><UserSettings /></div>
             </div>
