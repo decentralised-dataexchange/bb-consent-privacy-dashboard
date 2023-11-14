@@ -1,0 +1,29 @@
+
+.dashboard-footer{
+	height: 60px;
+	bottom: 0;
+	display: flex;
+	justify-content:flex-end;
+	box-sizing: border-box;
+    padding: 5px;
+	flex-direction: column;
+	right: 0;
+	width: 100%;
+}
+.dashboard-spin{
+	display: flex;
+	width: 100%;
+	box-sizing: border-box;
+	padding: 10px;
+	justify-content: center;
+}
+.dashboard-error{
+	display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+@media only screen and (max-height:570px){
+    .dashboard-footer{
+		position: inherit;
+	}
+}

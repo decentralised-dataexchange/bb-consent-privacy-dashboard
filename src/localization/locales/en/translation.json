@@ -1,0 +1,87 @@
+{
+  "language": "Langauage",
+  "signin": "Login to Privacy Dashboard",
+  "username": "User ID",
+  "name": "Name (First, Last)",
+  "mobileNumber": "Mobile number",
+  "email": "Email",
+  "password": "Password",
+  "rememberme": "Remember me",
+  "subscriptionKey": "Subscription key",
+  "fetchingMessage": "Fetching Organization...",
+  "subscribe": "Subscribe",
+  "logs": "Logs",
+  "lastVisit": "Last visit",
+  "messages": {
+    "username": "Please input your username!",
+    "password": "Please input your password!"
+  },
+  "forgot": "Forgot username or password?",
+  "forgotPasswordPageTitle": "Recover your account",
+  "createAccount": "Create yours now.",
+  "createAccountPageTitle": "Create your account",
+  "noAccount": "Don’t have an account?",
+  "haveAccount": "Already have an account?",
+  "signinLink": "Sign in",
+  "dashboardLink": "Dashboard",
+  "loading": "Loading...",
+  "landingPage": {
+    "overview": "Overview",
+    "usagePurpose": "Data Agreements",
+    "downloadData": "Download your data",
+    "deleteData": "Delete your data",
+    "viewLogs": "View logs"
+  },
+  "userPurposes": {
+    "fetchingMessage": "Fetching Purposes..."
+  },
+  "userRequests": {
+    "fetchingMessage": "Fetching user request...",
+    "description": "You will have the ability to view data agreements and mark your preferences",
+    "createRequest": "Create request",
+    "newRequest": "New request",
+    "requestType": "Request Type",
+    "requestedTime": "Requested Time",
+    "status": "Status",
+    "closed": "Closed",
+    "send": "Send",
+    "panelHeaderDataPolicy": "",
+    "panelHeaderReadPolicy": "Read policy",
+    "panelAllow": "Allow",
+    "Request initiated": "Request initiated",
+    "Request cancelled by user": "Request cancelled by user",
+    "Request acknowledged": "Request acknowledged",
+    "Request processed without action": "Request processed without action",
+    "Request processed with action": "Request processed with action"
+  },
+  "deleteData": {
+    "title": "Delete data",
+    "description": "You can request deletion of your personal data or view status of your request",
+    "emptyMessage": "No request found for delete data.",
+    "createOne": "Create one? Go to",
+    "andThen": "and then choose"
+  },
+  "requestTimeline": {
+    "Initialized": "Initialized",
+    "Acknowledged": "Acknowledged",
+    "Processed": "Processed"
+  },
+  "downloadData": {
+    "title": "Download data",
+    "emptyMessage": "No request found for data download.",
+    "description": "You can request downloading of your personal data or view status of your request"
+  },
+  "viewlogs": {
+    "title": "View logs",
+    "description": "View your consent history/logs",
+    "progress": "Fetching Logs...",
+    "timestamp": "Timestamp",
+    "log": "Log"
+  },
+  "dashboard": {
+    "name": "Privacy Dashboard",
+    "logout": "Logout",
+    "logs": "History",
+    "userRequest": "User requests"
+  }
+}

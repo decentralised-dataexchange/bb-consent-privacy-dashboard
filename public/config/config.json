@@ -1,0 +1,9 @@
+{
+  "organizationId": "5c1509c75430460001af6232",
+  "baseUrl": "https://staging-consent-bb-api.igrant.io/v2",
+  "logoUrl": "https://demo-api.igrant.io/v1/organizations/5c1509c75430460001af6232/image/5c150a315430460001af6234/web",
+  "subscriptionMethodId": 0,
+  "iamUrl": "https://iam.igrant.io/auth",
+  "iamRealm": "igrant-users",
+  "redirectUri": "https://privacy.igrant.io/login"
+}

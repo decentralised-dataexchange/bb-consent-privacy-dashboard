@@ -1,0 +1,87 @@
+{
+  "language": "Língua",
+  "signin": "Faça login no seu Privacy Dashboard",
+  "username": "Nome de usuário",
+  "name": "Nome (Primeiro, Último)",
+  "mobileNumber": "Número de celular",
+  "email": "O email",
+  "password": "Senha",
+  "subscriptionKey": "Chave de assinatura",
+  "fetchingMessage": "Buscando organização...",
+  "subscribe": "Subscribe",
+  "rememberme": "Lembre de mim",
+  "logs": "Logs",
+  "lastVisit": "Ultima visita",
+  "messages": {
+    "username": "Por favor insira seu nome de usuário!",
+    "password": "Por favor coloque sua senha!"
+  },
+  "forgot": "Esqueceu o nome de usuário ou senha?",
+  "forgotPasswordPageTitle": "Recupere sua conta",
+  "createAccount": "Crie o seu agora.",
+  "createAccountPageTitle": "crie sua conta",
+  "noAccount": "Não tem uma conta?",
+  "haveAccount": "já tem uma conta?",
+  "signinLink": "assinar em",
+  "dashboardLink": "Dashboard",
+  "loading": "Carregando",
+  "userRequests": {
+    "fetchingMessage": "buscando solicitação do usuário...",
+    "description": "Você poderá visualizar e marcar suas preferências",
+    "createRequest": "criar solicitação",
+    "newRequest": "novo pedido",
+    "requestType": "tipo de solicitação",
+    "requestedTime": "Hora solicitada",
+    "status": "Status",
+    "closed": "Fechadas",
+    "send": "mandar",
+    "panelHeaderDataPolicy": "meu consentimento de dados",
+    "panelHeaderReadPolicy": "política de leitura",
+    "panelAllow": "permitir",
+    "Request initiated": "Pedido iniciado",
+    "Request cancelled by user": "Pedido cancelado pelo usuário",
+    "Request acknowledged": "Pedido confirmado",
+    "Request processed without action": "Pedido processado sem ação",
+    "Request processed with action": "Solicitação processada com ação"
+  },
+  "landingPage": {
+    "overview": "visão global",
+    "usagePurpose": "Acordos de dados",
+    "downloadData": "baixe seus dados",
+    "deleteData": "Exclua seus dados",
+    "viewLogs": "ver registros"
+  },
+  "deleteData": {
+    "title": "Excluir dados",
+    "description": "Você poderá visualizar acordos de dados e marcar suas preferências",
+    "emptyMessage": "Nenhuma solicitação encontrada para Exclusão de Dados.",
+    "createOne": "Crie um? Vamos para",
+    "andThen": "e depois escolha"
+  },
+  "requestTimeline": {
+    "Initialized": "Inicializada",
+    "Acknowledged": "reconhecida",
+    "Processed": "Processada"
+  },
+  "downloadData": {
+    "title": "Baixar dados",
+    "emptyMessage": "Nenhuma solicitação encontrada para o Download de dados.",
+    "description": "Você pode solicitar o download de seus dados pessoais ou visualizar o status da sua solicitação"
+  },
+  "dashboard": {
+    "name": "Painel de Dados e Privacidade",
+    "logout": "Sair",
+    "logs": "História",
+    "userRequest": "solicitações de usuário"
+  },
+  "viewlogs": {
+    "title": "ver registros",
+    "description": "Visualize seu histórico / registros de consentimento",
+    "timestamp": "Registro de data e hora",
+    "log": "registro",
+    "progress": "Buscando logs..."
+  },
+  "userPurposes": {
+    "fetchingMessage": "Objetivos de busca..."
+  }
+}

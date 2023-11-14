@@ -1,0 +1,13 @@
+{
+    "signin": "Einloggen PrivacyBoard",
+    "username": "Nutzername",
+    "password": "Passwort",
+    "rememberme": "Erinnere dich an mich",
+    "messages": {
+        "username": "Bitte geben Sie Ihren Benutzernamen ein!",
+        "password": "Bitte geben Sie Ihr Passwort ein!"
+    },
+    "forgot": "Benutzername oder Passwort vergessen?",
+    "createAccount": "Erstellen Sie jetzt Ihre.",
+    "noAccount": "Sie haben noch kein Konto?"
+}

@@ -1,0 +1,64 @@
+
+.app-watermark{
+        align-self: center;
+        bottom: 0;
+        /* right: 0; */
+        padding: 2px;
+}
+#root{
+        overflow-x: hidden;
+        height: 100%;
+}
+.app-watermark > p{
+        margin:0;
+        color: rgba(14, 14, 14, 0.308);
+}
+      /* width */
+      ::-webkit-scrollbar {
+                width: 5px;
+        }
+      
+      /* Track */
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1; 
+      }
+       
+      /* Handle */
+      ::-webkit-scrollbar-thumb {
+        background: rgba(161, 161, 161, 0.781); 
+      }
+      
+      /* Handle on hover */
+      ::-webkit-scrollbar-thumb:hover {
+        background: #555; 
+      }
+
+/* @supports(padding: max(0px)) {
+        #root {
+            padding-left: max(12px, env(safe-area-inset-left));
+            padding-right: max(12px, env(safe-area-inset-right));
+        }
+    } */
+
+@media only screen and (max-width: 600px) {
+	.app-watermark{
+        align-self: center;
+        position: initial;
+        }
+        .dashboard-footer{
+                width:100%;
+                position: relative !important;
+        }
+        ::-webkit-scrollbar {
+                width: 0px;
+              }
+}
+
+
+
+
+/*Animation Keyframes*/
+@-moz-keyframes blink {0%{opacity:1;} 50%{opacity:0.5;} 100%{opacity:1;}} /* Firefox */
+@-webkit-keyframes blink {0%{opacity:1;} 50%{opacity:0.5;} 100%{opacity:1;}} /* Webkit */
+@-ms-keyframes blink {0%{opacity:1;} 50%{opacity:0.5;} 100%{opacity:1;}} /* IE */
+@keyframes blink {0%{opacity:1;} 50%{opacity:0.5;} 100%{opacity:1;}} /* Opera */

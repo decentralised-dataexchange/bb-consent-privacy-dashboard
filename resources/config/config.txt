@@ -1,0 +1,3 @@
+ORGID=5c1503775430460001af61d6
+BASEURL=https://demo-api.igrant.io
+LOGOURL=testurl
