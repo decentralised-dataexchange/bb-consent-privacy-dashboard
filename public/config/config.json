@@ -1,5 +1,5 @@
 {
   "baseUrl": "https://staging-consent-bb-api.igrant.io/v2",
-  "redirectUrl": "http://localhost:3000/login",
+  "redirectUrl": "https://staging-consent-bb-privacy-dashboard.igrant.io/login",
   "consentBbClientId": "igrant-ios-app"
 }
