@@ -28,6 +28,7 @@ DEPLOY_VERSION = $(shell test -f $(DEPLOY_VERSION_FILE) && cat $(DEPLOY_VERSION_
 GCLOUD_HOSTNAME = eu.gcr.io
 GCLOUD_PROJECTID = jenkins-189019
 DOCKER_IMAGE := ${GCLOUD_HOSTNAME}/${GCLOUD_PROJECTID}/$(NAME)
+DOCKER_HUB_IMAGE := igrantio/bb-consent-privacy-dashboard
 
 # tag based on git branch, date and commit
 DOCKER_TAG := $(GIT_BRANCH)-$(shell date +%Y%m%d%H%M%S)-$(GIT_COMMIT)
