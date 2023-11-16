@@ -5,6 +5,7 @@ import Services from "../services";
 import moment from "moment";
 
 class Store {
+
     @observable user = {
         name: "",
         email: ""
@@ -46,6 +47,9 @@ class Store {
         logs: [],
         isFetching: true
     };
+
+
+
 
     @action fetchLogs = () => {
         // Fetch logs

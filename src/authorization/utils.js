@@ -34,4 +34,5 @@ export const setSession = authResult => {
 	localStorage.setItem("userId", authResult.userId);
 	localStorage.setItem("username", authResult.username);
 	localStorage.setItem("email", authResult.email);
+	localStorage.setItem("isIdpLogin", authResult.isIdpLogin);
 };

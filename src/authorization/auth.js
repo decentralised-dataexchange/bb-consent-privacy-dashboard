@@ -1,5 +1,5 @@
 import axios from "axios";
-import { setSession } from "./utils";
+import { getSession, setSession } from "./utils";
 
 
 import { history } from "../history";
@@ -66,7 +66,7 @@ class Auth {
                 // Check if access token is expired
                 if (accessTokenExpiresIn - currentDateInUTC < 10) {
 
-                    if (this.store.idpConfig !== undefined || this.store.idpConfig !== null) {
+                    if (getSession("isIdpLogin") === "true") {
                         // Perform local logout by clearing local storage
                         this.clearSession();
                         this.isAuthenticated = false;
@@ -170,7 +170,7 @@ class Auth {
     logout = () => {
         try {
             // Perform online logout for IDP if available
-            if (this.store.idpConfig !== undefined || this.store.idpConfig !== null) {
+            if (getSession("isIdpLogin") === "true") {
                 const data = {
                     client_id: this.store.idpConfig.clientId,
                     refresh_token: this.refreshToken
@@ -214,7 +214,8 @@ class Auth {
                         ...loginRes.token,
                         userId: loginRes.userInfo.subject,
                         username: loginRes.userInfo.email,
-                        email: loginRes.userInfo.email
+                        email: loginRes.userInfo.email,
+                        isIdpLogin: "true"
                     });
                 }
                 // Access token
@@ -261,7 +262,8 @@ class Auth {
                         ...loginRes.token,
                         userId: loginRes.individual.id,
                         username: loginRes.individual.name,
-                        email: loginRes.individual.email
+                        email: loginRes.individual.email,
+                        isIdpLogin: "false"
                     });
                 }
                 // Access token
@@ -297,6 +299,7 @@ class Auth {
         localStorage.removeItem("refreshToken");
         localStorage.removeItem("expiresIn");
         localStorage.removeItem("userId");
+        localStorage.removeItem("isIdpLogin");
     };
 
     isLoginValid = () => {

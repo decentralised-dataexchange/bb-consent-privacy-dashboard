@@ -12,7 +12,6 @@ import { LanguageSelector } from "./LanguageSelector";
 import { Logo } from "./Logo";
 import "./login.css";
 import loginIcon from "assets/icons/arrow.svg";
-import defaultLogo from "assets/icons/igrant.io_200X200.jpg";
 import qs from "qs";
 
 @observer
@@ -22,6 +21,7 @@ class Login extends Component {
 
     // Don't show login for OpenID connect subscription method
     this.state = { showLogin: false, openIdLoaderText: "" };
+    this.handleOidcLogin = this.handleOidcLogin.bind(this);
   }
 
   componentWillMount() {
@@ -85,17 +85,10 @@ class Login extends Component {
                     });
                 }
               } else {
-                const authUrl = readIdpRes.data.idp.authorisationUrl;
-                const clientId = readIdpRes.data.idp.clientId;
-                const redirectUri = store.config.redirectUrl;
-
-                // Updating the loader text to be shown while waiting for the redirection towards org login page.
+                // Show login screen
                 this.setState({
-                  openIdLoaderText: "Redirecting to organization login page...",
+                  showLogin: true,
                 });
-
-                // Redirecting user to configured external identity provider login
-                window.location.href = `${authUrl}?client_id=${clientId}&response_type=code&redirect_uri=${redirectUri}`;
               }
             } else {
               // Show login screen
@@ -122,6 +115,25 @@ class Login extends Component {
     });
 
     store.fetchOrganisation();
+  }
+
+  handleOidcLogin() {
+    const authUrl = store.idpConfig.authorisationUrl;
+    const clientId = store.idpConfig.clientId;
+    const redirectUri = store.config.redirectUrl;
+
+    // Hide login
+    this.setState({
+      showLogin: false,
+    });
+
+    // Updating the loader text to be shown while waiting for the redirection towards org login page.
+    this.setState({
+      openIdLoaderText: "Redirecting to organization login page...",
+    });
+
+    // Redirecting user to configured external identity provider login
+    window.location.href = `${authUrl}?client_id=${clientId}&response_type=code&redirect_uri=${redirectUri}`;
   }
 
   handleKeydown(e) {
@@ -155,7 +167,7 @@ class Login extends Component {
 
     const { getFieldDecorator } = this.props.form;
     const loading = store.authStore.isLoading;
-    const { logoImageURI } = store.organizationStore;
+    const { logoImageURI, data } = store.organizationStore;
 
     if (this.state.showLogin) {
       return (
@@ -228,6 +240,12 @@ class Login extends Component {
                 </div>
               </Form.Item>
               <Divider className="login-divider" />
+              {store.idpConfig !== undefined || store.idpConfig !== null ? (
+                <div className="login-actions">
+                  <a onClick={this.handleOidcLogin}>Login with {data.name}</a>
+                </div>
+              ) : null}
+
               <div className="login-actions">
                 <Link to={`/forgot-password`}>{t("forgot")}</Link>
               </div>
