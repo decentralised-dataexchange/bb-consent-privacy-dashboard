@@ -1,5 +1,5 @@
 {
-  "baseUrl": "https://staging-consent-bb-api.igrant.io/v2",
+  "baseUrl": "https://api.igrant.dev/v2",
   "redirectUrl": "https://staging-consent-bb-privacy-dashboard.igrant.io/login",
   "consentBbClientId": "igrant-ios-app"
 }

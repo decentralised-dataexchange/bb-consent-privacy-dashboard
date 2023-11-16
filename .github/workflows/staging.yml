@@ -42,6 +42,10 @@ jobs:
           cluster_name: ${{ env.GKE_CLUSTER }}
           location: ${{ env.GKE_ZONE }}
           credentials: ${{ secrets.GKE_SA_KEY }}
+      
+      - name: Replace URLs
+        run: |
+          sed -i 's/"baseUrl": ".*"/"baseUrl": "https:\/\/staging-consent-bb-api.igrant.io\/v2"/' public/config/config.json
 
       # Build docker image, publish docker image to gcp container registry, deploy to production
       - name: Build docker image, publish docker image to gcp container registry, deploy to production
