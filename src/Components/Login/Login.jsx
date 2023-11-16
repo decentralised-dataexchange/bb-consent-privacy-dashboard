@@ -240,8 +240,9 @@ class Login extends Component {
                 </div>
               </Form.Item>
               <Divider className="login-divider" />
-              {store.idpConfig !== undefined || store.idpConfig !== null ? (
+              {!(store.idpConfig === undefined || store.idpConfig === null) ? (
                 <div className="login-actions">
+                  {console.log(store.idpConfig)}
                   <a onClick={this.handleOidcLogin}>Login with {data.name}</a>
                 </div>
               ) : null}
