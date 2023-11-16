@@ -74,7 +74,7 @@ class Auth {
                     } else {
                         let body = {
                             refreshtoken: this.refreshToken,
-                            clientId: this.store.config.consentBbClientId
+                            clientId: this.store.config.clientId
                         }
 
                         axios.post(`${this.store.config.apiEndpoints.refreshToken}`, body, {

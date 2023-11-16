@@ -2,7 +2,7 @@ const Config = (BASE_URL, REDIRECT_URI, CONSENT_BB_CLIENT_ID) => {
     return {
         baseUrl: BASE_URL,
         redirectUrl: REDIRECT_URI,
-        consentBbClientId: CONSENT_BB_CLIENT_ID,
+        clientId: CONSENT_BB_CLIENT_ID,
         firebase: {
             deeplink: "https://igrant.page.link/openApp"
         },
