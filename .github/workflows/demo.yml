@@ -42,9 +42,13 @@ jobs:
           location: ${{ env.GKE_ZONE }}
           credentials: ${{ secrets.GKE_SA_KEY }}
       
-      - name: Replace URLs
+      - name: Replace Base URL
         run: |
           sed -i 's/"baseUrl": ".*"/"baseUrl": "https:\/\/demo-consent-bb-api.igrant.io\/v2"/' public/config/config.json
+      
+      - name: Replace Redirect URL
+        run: |
+          sed -i 's/"redirectUrl": ".*"/"redirectUrl": "https:\/\/demo-consent-bb-privacy-dashboard.igrant.io\/login"/' public/config/config.json
 
       # Build docker image, publish docker image to gcp container registry, deploy to production
       - name: Build docker image, publish docker image to gcp container registry, deploy to production
