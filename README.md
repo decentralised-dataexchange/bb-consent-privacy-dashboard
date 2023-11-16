@@ -21,7 +21,7 @@ This repository hosts source code for the reference implementation of the GovSta
 
 ## Release Status
 
-Refer to the [wiki page](https://github.com/decentralised-dataexchange/bb-consent-docs/wiki/wps-and-deliverables) for the latest status of the deliverables. 
+Released. Refer to the [wiki page](https://github.com/decentralised-dataexchange/bb-consent-docs/wiki/wps-and-deliverables) for the latest status of the deliverables.
 
 ## Other resources
 
