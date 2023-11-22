@@ -10,7 +10,7 @@
   "rememberme": "Kom ihåg mig",
   "subscriptionKey": "Prenumerationsnyckel",
   "subscribe": "Prenumerera",
-  "logs": "Historik",
+  "logs": "Historia av samtycke",
   "lastVisit": "Senast besökt",
   "messages": {
     "username": "Vänligen skriv in ditt användarnamn!",
@@ -72,7 +72,7 @@
     "emptyMessage": "Ingen förfrågan hittades för datahämtning."
   },
   "viewlogs": {
-    "title": "Visa historik",
+    "title": "Historia av samtycke",
     "description": "Visa din samtykeshistorik",
     "timestamp": "Tidangivelse",
     "log": "Logg",
