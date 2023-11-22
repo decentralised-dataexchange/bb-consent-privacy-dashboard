@@ -10,7 +10,7 @@
   "fetchingMessage": "Buscando organização...",
   "subscribe": "Subscribe",
   "rememberme": "Lembre de mim",
-  "logs": "Logs",
+  "logs": "Consent history",
   "lastVisit": "Ultima visita",
   "messages": {
     "username": "Por favor insira seu nome de usuário!",
@@ -75,7 +75,7 @@
     "userRequest": "solicitações de usuário"
   },
   "viewlogs": {
-    "title": "ver registros",
+    "title": "Consent history",
     "description": "Visualize seu histórico / registros de consentimento",
     "timestamp": "Registro de data e hora",
     "log": "registro",

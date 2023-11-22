@@ -10,7 +10,7 @@
   "subscriptionKey": "Subscription key",
   "fetchingMessage": "Fetching Organization...",
   "subscribe": "Subscribe",
-  "logs": "Logs",
+  "logs": "Consent history",
   "lastVisit": "Last visit",
   "messages": {
     "username": "Please input your username!",
@@ -72,7 +72,7 @@
     "description": "You can request downloading of your personal data or view status of your request"
   },
   "viewlogs": {
-    "title": "View logs",
+    "title": "Consent history",
     "description": "View your consent history/logs",
     "progress": "Fetching Logs...",
     "timestamp": "Timestamp",
