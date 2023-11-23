@@ -399,17 +399,38 @@ class Store {
 
             // If lawful basis is not consent or legitimate interest
             // And if consent record is empty then, create a consent record
-            if (isNotConsentOrLegitimateInterest && associatedConsentRecords.length === 0) {
-                try {
-                    const createConsentRecordRes = await services.createConsentRecord(dataAgreement.id);
-                    if (createConsentRecordRes.status === 200) {
-                        console.log("Consent record created for data agreement: ", dataAgreement.id);
-                        associatedConsentRecords.push(createConsentRecordRes.data.consentRecord);
+            if (isNotConsentOrLegitimateInterest) {
+                if (associatedConsentRecords.length === 0) {
+                    try {
+                        const createConsentRecordRes = await services.createConsentRecord(dataAgreement.id);
+                        if (createConsentRecordRes.status === 200) {
+                            console.log("Consent record created for data agreement: ", dataAgreement.id);
+                            associatedConsentRecords.push(createConsentRecordRes.data.consentRecord);
+                        }
+                    } catch (error) {
+                        console.error(error);
                     }
-                } catch (error) {
-                    console.error(error);
+                } else {
+                    // And if consent record is not empty then, not already opted-in then update consent record
+                    if (!associatedConsentRecords[0]["optIn"]) {
+                        try {
+                            const updateConsentRecordRes = await services.updateConsentRecord(
+                                associatedConsentRecords[0]["id"],
+                                associatedConsentRecords[0]["dataAgreementId"],
+                                associatedConsentRecords[0]["individualId"],
+                                true
+                            );
+                            if (updateConsentRecordRes.status === 200) {
+                                console.log("Consent record updated for data agreement: ", dataAgreement.id);
+                            }
+                        } catch (error) {
+                            console.error(error);
+                        }
+                    }
+
                 }
             }
+
 
             // Set ui loader state for each data agreement
             loadingUiStore[dataAgreement.id] = false;
