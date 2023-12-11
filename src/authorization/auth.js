@@ -156,10 +156,10 @@ class Auth {
                 })
                 .then(this.parseAuthenticationResponse)
                 .catch(error => {
-                    console.error("Error occured while login: ", error);
+                    // console.error("Error occured while login: ", error.response.data.errorDescription);
                     // Save error to the store
                     if (error.response) {
-                        this.store.authStore.error = error.response.data.error_description
+                        this.store.authStore.error = error.response.data.errorDescription
                     } else { this.store.authStore.error = error.message; }
                     // Hide loader
                     this.store.authStore.isLoading = false;
