@@ -1,0 +1,51 @@
+:root {
+  --drawer-width: 480px;
+}
+
+.my-custom-drawer {
+  width: var(--drawer-width) !important;
+}
+
+.my-custom-drawer .ant-drawer-header {
+  border-bottom: none;
+}
+
+.my-custom-drawer .ant-drawer-wrapper-body {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.footer-container {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 10px 16px;
+  background: #fff;
+  text-align: right;
+}
+
+.button {
+  height: 30px;
+  width: 150px;
+  border-radius: 5;
+  border: 1px solid #dfdfdf;
+  color: black;
+}
+
+.button:hover {
+  background-color: black;
+  color: white;
+  border: 1px solid #dfdfdf;
+}
+
+@media screen and (max-width: 600px) {
+  :root {
+    --drawer-width: 380px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  :root {
+    --drawer-width: 100%;
+  }
+}

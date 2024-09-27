@@ -79,9 +79,25 @@
     "log": "Log"
   },
   "dashboard": {
-    "name": "Consent Building Block - Privacy Dashboard",
+    "name": "Your Data and Privacy Dashboard",
     "logout": "Logout",
     "logs": "History",
     "userRequest": "User requests"
+  },
+  "dataAgreements" : {
+    "read" : "Read",
+    "daDetails" : "data agreement details.",
+    "daataAgreement" : "Data Agreement",
+    "close": "Close",
+    "purpose" : "Purpose",
+    "purposeDescription" : "Purpose Description",
+    "lawfulBasisOfProcessing" : "Lawful Basis of Processing",
+    "policyURL" : "Policy URL",
+    "jurisdiction" : "Jurisdiction",
+    "thirdPartyDisclosure" : "Third Party Disclosure",
+    "industryScope" : "Industry Scope",
+    "geographicRestriction" : "Geographic Restriction",
+    "retentionPeriod" : "Retention Period",
+    "storageLocation" : "Storage location"
   }
 }

@@ -83,5 +83,21 @@
     "logout": "Logga ut",
     "logs": "Historik",
     "userRequest": "Användarförfrågningar"
+  },
+  "dataAgreements" : {
+    "read" : "Read",
+    "daDetails" : "data agreement details.",
+    "daataAgreement" : "Data Agreement",
+    "close": "Close",
+    "purpose" : "Purpose",
+    "purposeDescription" : "Purpose Description",
+    "lawfulBasisOfProcessing" : "Lawful Basis of Processing",
+    "policyURL" : "Policy URL",
+    "jurisdiction" : "Jurisdiction",
+    "thirdPartyDisclosure" : "Third Party Disclosure",
+    "industryScope" : "Industry Scope",
+    "geographicRestriction" : "Geographic Restriction",
+    "retentionPeriod" : "Retention Period",
+    "storageLocation" : "Storage location"
   }
 }
