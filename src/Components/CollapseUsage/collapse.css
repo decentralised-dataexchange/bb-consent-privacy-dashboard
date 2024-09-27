@@ -54,14 +54,14 @@
 
 .panel-header {
   display: flex;
-  align-items: center;
+  align-items: top;
   justify-content: space-between;
 }
 
 .panel-header .title {
   margin: 0;
   line-height: 22px;
-  font-size: "14px";
+  font-size: 14px;
 }
 
 .panel-header-count {
@@ -192,6 +192,23 @@
   padding: 5px 5px;
 }
 
-/*.ant-collapse > .panel-usage > .ant-collapse-header .ant-collapse-arrow {*/
-/*    margin-top: 22px;*/
-/*}*/
+.description-container {
+  width: 100%;
+  background-color: yellow;
+  padding: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  font-size: 12px;
+}
+
+.description-text {
+  flex-grow: 1;
+  margin-right: 8px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.read-text {
+  white-space: nowrap;
+}
