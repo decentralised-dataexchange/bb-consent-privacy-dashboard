@@ -446,6 +446,8 @@ class Store {
                 consentRecords: associatedConsentRecords.length === 0 ? null : associatedConsentRecords[0],
                 isDisabled: isNotConsentOrLegitimateInterest,
                 isUpdate: associatedConsentRecords.length !== 0,
+                methodOfUse: dataAgreement.methodOfUse,
+                dataSources: dataAgreement.dataSources,
             };
         }));
 

@@ -69,6 +69,10 @@
   margin: 0;
   padding: 0;
   color: gray;
+  display: flex;
+  justify-content: space-between;
+  align-items: top;
+  width:97%
 }
 
 .panel-header > button {
