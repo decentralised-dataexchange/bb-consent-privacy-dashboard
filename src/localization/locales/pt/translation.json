@@ -84,20 +84,22 @@
   "userPurposes": {
     "fetchingMessage": "Objetivos de busca..."
   },
-  "dataAgreements" : {
-    "read" : "Read",
-    "daDetails" : "data agreement details.",
-    "daataAgreement" : "Data Agreement",
+  "dataAgreements": {
+    "read": "Read",
+    "daDetails": "data agreement details.",
+    "daataAgreement": "Data Agreement",
     "close": "Close",
-    "purpose" : "Purpose",
-    "purposeDescription" : "Purpose Description",
-    "lawfulBasisOfProcessing" : "Lawful Basis of Processing",
-    "policyURL" : "Policy URL",
-    "jurisdiction" : "Jurisdiction",
-    "thirdPartyDisclosure" : "Third Party Disclosure",
-    "industryScope" : "Industry Scope",
-    "geographicRestriction" : "Geographic Restriction",
-    "retentionPeriod" : "Retention Period",
-    "storageLocation" : "Storage location"
+    "purpose": "Purpose",
+    "purposeDescription": "Purpose Description",
+    "lawfulBasisOfProcessing": "Lawful Basis of Processing",
+    "policyURL": "Policy URL",
+    "jurisdiction": "Jurisdiction",
+    "thirdPartyDisclosure": "Third Party Disclosure",
+    "industryScope": "Industry Scope",
+    "geographicRestriction": "Geographic Restriction",
+    "retentionPeriod": "Retention Period",
+    "storageLocation": "Storage location",
+    "dataSources": "Data Sources",
+    "sector": "Sector"
   }
 }

@@ -4,6 +4,7 @@ import { withNamespaces } from "react-i18next";
 import { Popover } from "antd";
 import { ModalComponentWithNamespace } from "../modals/modal";
 import { DataAgreementDetailsWithNamespace } from "../modals/detailsContainer/dataAgreementDetails";
+import { DataSourcesDetailsWithNamespace } from "../modals/detailsContainer/dataSourcesDetails";
 
 const content = (description) => (
   <div>
@@ -32,10 +33,18 @@ export const PanelHeader = ({
   geographicRestriction,
   retentionPeriod,
   storageLocation,
+  methodOfUse,
+  dataAgreement,
 }) => {
   const [openViewDataAgreementModal, setOpenViewDataAgreementModal] = useState(
     false
   );
+  const [openDataSources, setOpenViewDataSources] = useState(false);
+
+  const disableDataAttrubutes =
+    methodOfUse !== "data_using_service" ||
+    (!dataAgreement["dataSources"] ||
+      dataAgreement["dataSources"] === undefined || dataAgreement["dataSources"].length === 0);
 
   return (
     <>
@@ -75,13 +84,34 @@ export const PanelHeader = ({
               </p>
             )}
             <div className="panel-header-count">
-              {t("userRequests.panelAllow")}
-              {` ${consented} of ${total}`}
+              <p>
+                {" "}
+                {t("userRequests.panelAllow")}
+                {` ${consented} of ${total}`}
+              </p>
+              {showDescription && (
+                <p
+                  style={{
+                    textDecoration: "underline",
+                    color: disableDataAttrubutes ? "grey" : "#1890FF",
+                    cursor: disableDataAttrubutes ? "not-allowed" : "pointer",
+                  }}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    if (!disableDataAttrubutes) {
+                      setOpenViewDataSources(true);
+                    }
+                  }}
+                >
+                  {t("dataAgreements.dataSources")}
+                </p>
+              )}
             </div>
           </div>
         </div>
       </Popover>
 
+      {/* View Data agreements */}
       <ModalComponentWithNamespace
         open={openViewDataAgreementModal}
         setOpen={setOpenViewDataAgreementModal}
@@ -99,6 +129,15 @@ export const PanelHeader = ({
           retentionPeriod={retentionPeriod}
           storageLocation={storageLocation}
         />
+      </ModalComponentWithNamespace>
+
+      {/* View Data Sources */}
+      <ModalComponentWithNamespace
+        open={openDataSources}
+        setOpen={setOpenViewDataSources}
+        header={t("dataAgreements.dataSources")}
+      >
+        <DataSourcesDetailsWithNamespace dataAgreement={dataAgreement} />
       </ModalComponentWithNamespace>
     </>
   );

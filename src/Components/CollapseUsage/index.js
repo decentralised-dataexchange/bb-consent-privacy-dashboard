@@ -94,7 +94,6 @@ class CollapseUsage extends Component {
         {!data
           ? null
           : data.map((dataAgreement, i) => {
-              console.log("dataAgreement", dataAgreement["consentRecords"]);
               const consented =
                 dataAgreement["consentRecords"] === null
                   ? 0
@@ -150,6 +149,7 @@ class CollapseUsage extends Component {
                         storageLocation={
                           dataAgreement["policy"]["storageLocation"]
                         }
+                        methodOfUse={`${dataAgreement["methodOfUse"]}`}
                       />
                     </Spin>
                   }
