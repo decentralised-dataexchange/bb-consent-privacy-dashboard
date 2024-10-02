@@ -59,14 +59,32 @@ export const DataSourcesDetails = ({ t, dataAgreement }) => {
           <div style={cardStyle} key={i}>
             <p style={{ fontSize: "14px" }}>{dataSource.name}</p>
 
-            <div style={{ display: "flex", flexWrap: "wrap" }}>
-              <p style={{ margin: 0, color: "grey" }}>{dataSource.sector},</p>
-              <p style={{ margin: 0, color: "grey", marginLeft: 5 }}>
-                {dataSource.location},
+            <div
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                alignItems: "center",
+              }}
+            >
+              <p style={{ margin: 0, color: "grey" }}>
+                {dataSource.sector},&nbsp;&nbsp;
               </p>
-              <p style={{ margin: 0, color: "grey", marginLeft: 5 }}>
+              <p style={{ margin: 0, color: "grey" }}>
+                {dataSource.location}
+                {dataSource.privacyDashboardUrl && ","}&nbsp;&nbsp;
+              </p>
+              <a
+                href={dataSource.privacyDashboardUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  margin: 0,
+                  color: "1890FF",
+                  textDecoration: "none",
+                }}
+              >
                 {dataSource.privacyDashboardUrl}
-              </p>
+              </a>
             </div>
           </div>
         ))}
