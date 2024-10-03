@@ -23,6 +23,24 @@ const DataItem = ({ label, value, isLast }) => (
   </div>
 );
 
+export const getLawfulBasisOfProcessing = (
+  LawfulBasisOfProcessing
+) => {
+  if (LawfulBasisOfProcessing === "consent") {
+    return "Consent" ;
+  } else if (LawfulBasisOfProcessing === "contract") {
+    return "Contract";
+  } else if (LawfulBasisOfProcessing === "legal_obligation") {
+    return "Legal Obligation";
+  } else if (LawfulBasisOfProcessing === "vital_interest") {
+    return "Vital Interest";
+  } else if (LawfulBasisOfProcessing === "public_task") {
+    return "Public Task";
+  } else {
+    return "Legitimate Interest";
+  }
+};
+
 export const DataAgreementDetails = ({
   t,
   purpose,
@@ -41,7 +59,7 @@ export const DataAgreementDetails = ({
     { key: t("dataAgreements.purposeDescription"), value: purposeDescription },
     {
       key: t("dataAgreements.lawfulBasisOfProcessing"),
-      value: lawfulBasisOfProcessing,
+      value:getLawfulBasisOfProcessing(lawfulBasisOfProcessing) ,
     },
   ];
 
