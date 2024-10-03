@@ -4,15 +4,17 @@ import { Drawer, Button } from "antd";
 import "./modal.css";
 import { withNamespaces } from "react-i18next";
 
-export const ModalComponent = ({ t, open, setOpen, header, children }) => {
+export const ModalComponent = ({ t, open, setOpen, header, children, key }) => {
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
     <Drawer
+      key={key}
       placement="right"
       closable={true}
-      onClose={(e) => {
-        e.stopPropagation();
-        setOpen(false);
-      }}
+      onClose={handleClose}
       visible={open}
       title={header}
       className="my-custom-drawer"
@@ -22,10 +24,7 @@ export const ModalComponent = ({ t, open, setOpen, header, children }) => {
 
       <div className="footer-container">
         <Button
-          onClick={(e) => {
-            e.stopPropagation();
-            setOpen(false);
-          }}
+          onClick={handleClose}
           className="button"
         >
           {t("dataAgreements.close")}

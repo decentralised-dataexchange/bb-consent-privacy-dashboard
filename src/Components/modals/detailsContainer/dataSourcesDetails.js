@@ -45,7 +45,6 @@ export const DataSourcesDetails = ({ t, dataAgreement }) => {
         <p
           style={{ color: "grey", fontSize: "15px", cursor: "pointer" }}
           onClick={(e) => {
-            e.stopPropagation();
             e.preventDefault();
           }}
         >

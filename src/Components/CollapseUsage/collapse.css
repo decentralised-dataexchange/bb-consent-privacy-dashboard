@@ -72,7 +72,7 @@
   display: flex;
   justify-content: space-between;
   align-items: top;
-  width:97%
+  width: 97%;
 }
 
 .panel-header > button {
@@ -215,4 +215,8 @@
 
 .read-text {
   white-space: nowrap;
+}
+
+.collapse-usage .ant-collapse > .ant-collapse-item > .ant-collapse-header {
+  padding: 0 12px 0 40px;
 }

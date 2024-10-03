@@ -7,6 +7,7 @@ const Panel = Collapse.Panel;
 const RadioGroup = Radio.Group;
 
 export const SubCollapse = ({ title, consented, lawfulUsage }) => (
+
   <Collapse
     className="collapse-usage bg-transparent"
     bordered={false}
@@ -14,7 +15,7 @@ export const SubCollapse = ({ title, consented, lawfulUsage }) => (
       <Icon type="caret-right" rotate={isActive ? 90 : 0} />
     )}
   >
-    <Panel className="sub-collapse-panel" header={title} key="1">
+    <Panel className="sub-collapse-panel" header={title} key="1" style={{marginTop:  "5px"}}>
       <div className="group">
         <RadioGroup
           className="radio-group-small"
