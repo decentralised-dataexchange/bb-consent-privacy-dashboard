@@ -218,7 +218,7 @@ class ForgotPassword extends Component {
         <div className="forgot-password-footer-container">
           <div className="forgot-password-footer">
             <p className="copyright">
-              Copyright © 2026 iGrant Technologies AB, Sweden. All rights reserved.
+              Copyright © {new Date().getFullYear()} iGrant Technologies AB, Sweden. All rights reserved.
             </p>
             <LanguageSelector t={t} />
             <Logo />
