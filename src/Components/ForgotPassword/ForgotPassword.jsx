@@ -218,7 +218,7 @@ class ForgotPassword extends Component {
         <div className="forgot-password-footer-container">
           <div className="forgot-password-footer">
             <p className="copyright">
-              Copyright © 2023 LCubed AB, Sweden. All rights reserved.
+              Copyright © 2023 iGrant Technologies AB, Sweden. All rights reserved.
             </p>
             <LanguageSelector t={t} />
             <Logo />
