@@ -255,7 +255,7 @@ class Login extends Component {
           <div className="login-footer-container">
             <div className="login-footer">
               <p className="copyright">
-                Copyright © 2026 iGrant Technologies AB, Sweden. All rights reserved.
+                Copyright © {new Date().getFullYear()} iGrant Technologies AB, Sweden. All rights reserved.
               </p>
               <LanguageSelector t={t} />
               <Logo />
